@@ -1,0 +1,29 @@
+# S.I.M.R.A.N. .gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Environment / secrets
+.env
+.env.local
+*.key
+
+# Node (if ever used)
+node_modules/
+npm-debug.log
+
+# Build artifacts
+dist/
+build/

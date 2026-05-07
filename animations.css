@@ -1,0 +1,182 @@
+/* ============================================
+   S.I.M.R.A.N. v2.0 — animations.css
+   All keyframes and transition effects
+============================================ */
+
+/* Page transitions */
+.page.active {
+  animation: pageIn .35s ease;
+}
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Step content transitions */
+.step-content.active {
+  animation: stepIn .3s ease;
+}
+
+@keyframes stepIn {
+  from { opacity: 0; transform: translateX(18px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Card appear */
+.mcard {
+  animation: cardIn .35s ease both;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Stagger for match cards */
+.mcard:nth-child(1)  { animation-delay: .05s; }
+.mcard:nth-child(2)  { animation-delay: .10s; }
+.mcard:nth-child(3)  { animation-delay: .15s; }
+.mcard:nth-child(4)  { animation-delay: .20s; }
+.mcard:nth-child(5)  { animation-delay: .25s; }
+.mcard:nth-child(6)  { animation-delay: .30s; }
+.mcard:nth-child(7)  { animation-delay: .35s; }
+.mcard:nth-child(8)  { animation-delay: .40s; }
+.mcard:nth-child(9)  { animation-delay: .45s; }
+.mcard:nth-child(10) { animation-delay: .50s; }
+
+/* Pick card hover glow */
+.pick-card::after {
+  content: '';
+  position: absolute; inset: 0; border-radius: inherit;
+  background: radial-gradient(ellipse at center, rgba(0,210,170,.06) 0%, transparent 70%);
+  opacity: 0; transition: opacity .3s;
+  pointer-events: none;
+}
+.pick-card:hover::after { opacity: 1; }
+
+/* Stat box hover glow */
+.stat-box::after {
+  content: '';
+  position: absolute; inset: 0; border-radius: inherit;
+  background: radial-gradient(ellipse at 30% 50%, rgba(0,210,170,.04) 0%, transparent 70%);
+  opacity: 0; transition: opacity .3s;
+  pointer-events: none;
+}
+.stat-box { position: relative; }
+.stat-box:hover::after { opacity: 1; }
+
+/* Score circle spin on load */
+.score-circle {
+  animation: scoreIn .5s cubic-bezier(.34,1.56,.64,1) both;
+}
+.mcard:nth-child(1) .score-circle { animation-delay: .1s; }
+.mcard:nth-child(2) .score-circle { animation-delay: .15s; }
+.mcard:nth-child(3) .score-circle { animation-delay: .2s; }
+
+@keyframes scoreIn {
+  from { transform: scale(0) rotate(-90deg); opacity: 0; }
+  to   { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* Skill tags pop in */
+.skill-tag {
+  animation: tagIn .3s ease both;
+}
+
+@keyframes tagIn {
+  from { opacity: 0; transform: scale(.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Logo pulse ring */
+.logo-icon::after {
+  content: '';
+  position: absolute; inset: -4px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,210,170,.3);
+  animation: logoRing 3s ease-in-out infinite;
+}
+
+@keyframes logoRing {
+  0%, 100% { opacity: 0; transform: scale(1); }
+  50% { opacity: .6; transform: scale(1.05); }
+}
+
+/* Progress bar shimmer */
+.progress-fill::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.3), transparent);
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: inherit;
+}
+.progress-fill { position: relative; }
+
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(200%); }
+}
+
+/* How-card number float */
+.how-num {
+  animation: numFloat 4s ease-in-out infinite;
+}
+@keyframes numFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Nav item active underline slide */
+.nav-item.active::before {
+  content: '';
+  position: absolute; left: 0; top: 6px; bottom: 6px;
+  width: 2px; border-radius: 0 2px 2px 0;
+  background: var(--accent);
+  animation: navLine .25s ease;
+}
+.nav-item { position: relative; }
+
+@keyframes navLine {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+/* Glow on button press */
+.btn-primary:active {
+  box-shadow: 0 0 20px rgba(0,210,170,.5);
+  transform: scale(.98);
+}
+
+/* Filter button ripple */
+.filter-btn:active { transform: scale(.95); }
+
+/* History card slide in */
+.hist-card {
+  animation: histIn .3s ease both;
+}
+.hist-card:nth-child(1) { animation-delay: .05s; }
+.hist-card:nth-child(2) { animation-delay: .1s; }
+.hist-card:nth-child(3) { animation-delay: .15s; }
+
+@keyframes histIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Score fill bar animation */
+.smb-fill {
+  animation: barFill .8s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes barFill {
+  from { width: 0 !important; }
+}
+
+/* Radar center rotate */
+.radar-ctr svg {
+  animation: radarSpin 8s linear infinite;
+}
+@keyframes radarSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

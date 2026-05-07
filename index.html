@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>S.I.M.R.A.N. — AI Job Hunting Assistant</title>
+  <meta name="description" content="Smart Intelligent Model for Recruitment and Analysis Network — AI-powered job matching engine."/>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/components.css"/>
+  <link rel="stylesheet" href="css/results.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- SIDEBAR NAV -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">
+        <div class="logo-pulse"></div>
+        <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="10" stroke="#00d2aa" stroke-width="1.5" stroke-dasharray="3 2"/>
+          <circle cx="14" cy="14" r="5" fill="rgba(0,210,170,0.12)" stroke="#00d2aa" stroke-width="1"/>
+          <circle cx="14" cy="14" r="2" fill="#00d2aa"/>
+          <line x1="14" y1="4" x2="14" y2="9" stroke="#00d2aa" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="14" y1="19" x2="14" y2="24" stroke="#00d2aa" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="4" y1="14" x2="9" y2="14" stroke="#00d2aa" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="19" y1="14" x2="24" y2="14" stroke="#00d2aa" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <span class="logo-name">S.I.M.R.A.N.</span>
+        <span class="logo-ver">v2.0</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="nav-item active" data-page="home" onclick="navTo('home')">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146z"/></svg>
+        Dashboard
+      </a>
+      <a class="nav-item" data-page="analyze" onclick="navTo('analyze')">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/></svg>
+        New Analysis
+      </a>
+      <a class="nav-item" data-page="history" onclick="navTo('history')">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/><path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"/><path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/></svg>
+        History
+      </a>
+      <a class="nav-item" data-page="skills" onclick="navTo('skills')">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/></svg>
+        Settings
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="https://github.com/Aranya2801/S.I.M.R.A.N.-Smart-Intelligent-Model-for-Recruitment-and-Analysis-Network" target="_blank" class="gh-link">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+      <div class="ai-badge">Powered by Claude AI</div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content" id="mainContent">
+
+    <!-- PAGE: HOME / DASHBOARD -->
+    <div class="page active" id="page-home">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Dashboard</h1>
+          <p class="page-sub">Your AI-powered career command center</p>
+        </div>
+        <div class="header-actions">
+          <span class="status-pill online">● System Online</span>
+          <button class="btn btn-primary" onclick="navTo('analyze')">+ New Analysis</button>
+        </div>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="stats-row" id="statsRow">
+        <div class="stat-box">
+          <div class="stat-icon">🎯</div>
+          <div class="stat-info">
+            <span class="stat-num" id="statAnalyses">0</span>
+            <span class="stat-label">Analyses Run</span>
+          </div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-icon">✅</div>
+          <div class="stat-info">
+            <span class="stat-num" id="statHighMatches">0</span>
+            <span class="stat-label">High Matches</span>
+          </div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-icon">💼</div>
+          <div class="stat-info">
+            <span class="stat-num" id="statJobs">0</span>
+            <span class="stat-label">Jobs Analyzed</span>
+          </div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-icon">📈</div>
+          <div class="stat-info">
+            <span class="stat-num" id="statAvgScore">—</span>
+            <span class="stat-label">Avg Match Score</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent History -->
+      <div class="section-header">
+        <h2 class="section-title-main">Recent Analyses</h2>
+      </div>
+      <div id="historyCards" class="history-cards">
+        <div class="empty-state">
+          <div class="empty-icon">🔍</div>
+          <div class="empty-title">No analyses yet</div>
+          <div class="empty-sub">Run your first job match analysis to see results here</div>
+          <button class="btn btn-primary" onclick="navTo('analyze')" style="margin-top:16px">Start Analysis →</button>
+        </div>
+      </div>
+
+      <!-- How it works -->
+      <div class="section-header" style="margin-top:40px">
+        <h2 class="section-title-main">How S.I.M.R.A.N. Works</h2>
+      </div>
+      <div class="how-grid">
+        <div class="how-card">
+          <div class="how-num">01</div>
+          <div class="how-icon">📄</div>
+          <div class="how-title">Upload Resume</div>
+          <div class="how-desc">Paste your resume. S.I.M.R.A.N. extracts skills, experience, roles, and preferences automatically.</div>
+        </div>
+        <div class="how-card">
+          <div class="how-num">02</div>
+          <div class="how-icon">💼</div>
+          <div class="how-title">Add Job Listings</div>
+          <div class="how-desc">Paste up to 15 job descriptions. Include salary info for best results, or let AI estimate it.</div>
+        </div>
+        <div class="how-card">
+          <div class="how-num">03</div>
+          <div class="how-icon">🤖</div>
+          <div class="how-title">AI Analysis</div>
+          <div class="how-desc">Claude AI scores each job on skills, experience, role relevance, and location — 0 to 100.</div>
+        </div>
+        <div class="how-card">
+          <div class="how-num">04</div>
+          <div class="how-icon">🎯</div>
+          <div class="how-title">Get Ranked Results</div>
+          <div class="how-desc">View ranked matches, salary estimates, skill gaps, and your top 3 recommended applications.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE: ANALYZE -->
+    <div class="page" id="page-analyze">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">New Analysis</h1>
+          <p class="page-sub">Match your resume against job listings</p>
+        </div>
+        <div class="step-pills">
+          <span class="step-pill active" id="sp1">1 · Resume</span>
+          <span class="step-arrow">→</span>
+          <span class="step-pill" id="sp2">2 · Jobs</span>
+          <span class="step-arrow">→</span>
+          <span class="step-pill" id="sp3">3 · Options</span>
+          <span class="step-arrow">→</span>
+          <span class="step-pill" id="sp4">4 · Results</span>
+        </div>
+      </div>
+
+      <!-- Step 1: Resume -->
+      <div class="step-content active" id="sc1">
+        <div class="card">
+          <div class="card-label">
+            Resume / CV
+            <button class="sample-btn" id="sampleResBtn">Load Sample Resume</button>
+          </div>
+          <textarea id="resumeTxt" rows="16" placeholder="Paste your full resume here...
+
+Include:
+• Work experience (company, role, dates, responsibilities)
+• Skills & technologies
+• Education
+• Projects & certifications
+• Location preference"></textarea>
+          <div class="char-count" id="resumeCount">0 characters</div>
+        </div>
+
+        <!-- Resume Tips -->
+        <div class="tips-grid">
+          <div class="tip-card">💡 Include all skills explicitly — don't assume AI knows your stack</div>
+          <div class="tip-card">📍 Mention your location and remote preferences for better location scoring</div>
+          <div class="tip-card">🗓 Include dates so experience years can be calculated accurately</div>
+          <div class="tip-card">🏆 Add certifications and notable projects to boost your profile</div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" id="toJobsBtn">Continue to Jobs →</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Jobs -->
+      <div class="step-content" id="sc2">
+        <div class="card">
+          <div class="card-label">
+            Job Listings
+            <div style="display:flex;gap:8px;margin-left:auto">
+              <button class="sample-btn" id="sampleJobsBtn">Load Sample Jobs</button>
+              <button class="sample-btn" id="clearJobsBtn">Clear All</button>
+            </div>
+          </div>
+          <div class="jobs-list" id="jobsList"></div>
+          <button class="btn btn-add" id="addJobBtn">+ Add Another Job</button>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-ghost" onclick="backToStep(1)">← Back</button>
+          <button class="btn btn-primary" id="toOptionsBtn">Continue to Options →</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Options -->
+      <div class="step-content" id="sc3">
+        <div class="card">
+          <div class="card-label">Analysis Options</div>
+          <div class="options-grid">
+            <div class="option-group">
+              <label class="opt-label">Minimum Match Score Threshold</label>
+              <div class="slider-row">
+                <input type="range" id="minScore" min="0" max="80" value="40" class="slider">
+                <span class="slider-val" id="minScoreVal">40</span>
+              </div>
+              <div class="opt-hint">Jobs below this score will be excluded from results</div>
+            </div>
+            <div class="option-group">
+              <label class="opt-label">Scoring Weights</label>
+              <div class="weights-grid">
+                <div class="weight-item">
+                  <span class="weight-lbl">Skills Match</span>
+                  <div class="weight-bar"><div class="weight-fill" style="width:40%"></div></div>
+                  <span class="weight-pct">40%</span>
+                </div>
+                <div class="weight-item">
+                  <span class="weight-lbl">Experience</span>
+                  <div class="weight-bar"><div class="weight-fill" style="width:30%;background:#f5c842"></div></div>
+                  <span class="weight-pct">30%</span>
+                </div>
+                <div class="weight-item">
+                  <span class="weight-lbl">Role Relevance</span>
+                  <div class="weight-bar"><div class="weight-fill" style="width:20%;background:#00aaff"></div></div>
+                  <span class="weight-pct">20%</span>
+                </div>
+                <div class="weight-item">
+                  <span class="weight-lbl">Location</span>
+                  <div class="weight-bar"><div class="weight-fill" style="width:10%;background:#ff6b6b"></div></div>
+                  <span class="weight-pct">10%</span>
+                </div>
+              </div>
+            </div>
+            <div class="option-group">
+              <label class="opt-label">Preferences</label>
+              <div class="toggle-list">
+                <label class="toggle-item">
+                  <input type="checkbox" id="prefRemote" checked>
+                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                  Boost remote-friendly jobs
+                </label>
+                <label class="toggle-item">
+                  <input type="checkbox" id="prefSalary" checked>
+                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                  Estimate missing salaries
+                </label>
+                <label class="toggle-item">
+                  <input type="checkbox" id="prefStrict">
+                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                  Strict mode (penalize overqualification)
+                </label>
+              </div>
+            </div>
+            <div class="option-group">
+              <label class="opt-label">Output Language</label>
+              <select class="sel" id="outputLang">
+                <option value="English">English</option>
+                <option value="Spanish">Spanish</option>
+                <option value="French">French</option>
+                <option value="German">German</option>
+                <option value="Hindi">Hindi</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-ghost" onclick="backToStep(2)">← Back</button>
+          <button class="btn btn-primary" id="analyzeBtn">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34z"/><circle cx="8" cy="8" r="2.5"/></svg>
+            Run S.I.M.R.A.N. Analysis
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 4: Results -->
+      <div class="step-content" id="sc4">
+        <!-- Loading -->
+        <div id="loadDiv">
+          <div class="loading-screen">
+            <div class="radar-wrap">
+              <div class="radar-ring"></div>
+              <div class="radar-ring"></div>
+              <div class="radar-ring"></div>
+              <div class="radar-ctr">
+                <svg width="18" height="18" viewBox="0 0 28 28" fill="none">
+                  <circle cx="14" cy="14" r="6" fill="rgba(0,210,170,0.2)" stroke="#00d2aa" stroke-width="1.5"/>
+                  <circle cx="14" cy="14" r="2.5" fill="#00d2aa"/>
+                </svg>
+              </div>
+            </div>
+            <div class="loading-title">S.I.M.R.A.N. Analyzing<span class="dots"><span>.</span><span>.</span><span>.</span></span></div>
+            <div class="loading-msg" id="loadMsg">Initializing neural recruitment engine...</div>
+            <div class="loading-progress">
+              <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+              <span class="progress-pct" id="progressPct">0%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Error -->
+        <div id="errDiv" style="display:none">
+          <div class="error-box">
+            <div class="error-icon">⚠</div>
+            <div class="error-content">
+              <div class="error-title">Analysis Failed</div>
+              <div class="error-msg" id="errMsg"></div>
+            </div>
+          </div>
+          <div class="btn-row" style="margin-top:16px">
+            <button class="btn btn-ghost" onclick="backToStep(3)">← Try Again</button>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div id="resDiv" style="display:none">
+
+          <!-- Candidate Profile Card -->
+          <div class="result-profile-card" id="profileCard"></div>
+
+          <!-- Score Breakdown Chart -->
+          <div class="card" id="scoreChartCard" style="margin-bottom:20px">
+            <div class="card-label">Score Distribution</div>
+            <div class="chart-area" id="scoreChart"></div>
+          </div>
+
+          <!-- Top Picks -->
+          <div class="section-title-res" id="picksHeading" style="display:none">
+            ⭐ Top Recommendations
+          </div>
+          <div class="picks-grid" id="picksGrid"></div>
+
+          <!-- Filters Bar -->
+          <div class="filters-bar" id="filtersBar">
+            <span class="filter-label">Filter:</span>
+            <button class="filter-btn active" onclick="filterJobs('all', this)">All</button>
+            <button class="filter-btn" onclick="filterJobs('high', this)">High Match</button>
+            <button class="filter-btn" onclick="filterJobs('medium', this)">Medium</button>
+            <button class="filter-btn" onclick="filterJobs('low', this)">Low</button>
+            <span class="filter-label" style="margin-left:auto">Sort:</span>
+            <button class="filter-btn active" onclick="sortJobs('score', this)">Score ↓</button>
+            <button class="filter-btn" onclick="sortJobs('salary', this)">Salary ↓</button>
+          </div>
+
+          <div class="section-title-res" id="allJobsHeading">All Matched Jobs</div>
+          <div class="match-list" id="matchList"></div>
+
+          <!-- Export -->
+          <div class="export-bar">
+            <button class="btn btn-ghost" onclick="exportJSON()">↓ Export JSON</button>
+            <button class="btn btn-ghost" onclick="copyReport()">⎘ Copy Report</button>
+            <button class="btn btn-primary" onclick="newAnalysis()">+ New Analysis</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE: HISTORY -->
+    <div class="page" id="page-history">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Analysis History</h1>
+          <p class="page-sub">All your past job match analyses</p>
+        </div>
+        <button class="btn btn-ghost" onclick="clearHistory()">Clear History</button>
+      </div>
+      <div id="historyPage" class="history-cards">
+        <div class="empty-state">
+          <div class="empty-icon">📂</div>
+          <div class="empty-title">No history yet</div>
+          <div class="empty-sub">Your analyses will appear here after you run them</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE: SETTINGS -->
+    <div class="page" id="page-skills">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Settings</h1>
+          <p class="page-sub">Configure S.I.M.R.A.N. preferences</p>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:20px">
+        <div class="card-label">About S.I.M.R.A.N.</div>
+        <div class="about-grid">
+          <div class="about-item"><span class="about-key">Version</span><span class="about-val">2.0.0</span></div>
+          <div class="about-item"><span class="about-key">AI Model</span><span class="about-val">Claude Sonnet 4</span></div>
+          <div class="about-item"><span class="about-key">Author</span><span class="about-val">Aranya2801</span></div>
+          <div class="about-item"><span class="about-key">License</span><span class="about-val">MIT</span></div>
+          <div class="about-item"><span class="about-key">GitHub</span><span class="about-val"><a href="https://github.com/Aranya2801/S.I.M.R.A.N.-Smart-Intelligent-Model-for-Recruitment-and-Analysis-Network" target="_blank" style="color:var(--accent)">View Repository</a></span></div>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:20px">
+        <div class="card-label">Scoring Weights Reference</div>
+        <div class="scoring-table">
+          <div class="scoring-row header">
+            <span>Factor</span><span>Weight</span><span>Description</span>
+          </div>
+          <div class="scoring-row"><span>Skills Match</span><span class="badge-accent">40%</span><span>Overlap between your skills and job requirements</span></div>
+          <div class="scoring-row"><span>Experience</span><span class="badge-gold">30%</span><span>Years of experience vs job requirement</span></div>
+          <div class="scoring-row"><span>Role Relevance</span><span class="badge-blue">20%</span><span>How closely your roles match the job domain</span></div>
+          <div class="scoring-row"><span>Location</span><span class="badge-red">10%</span><span>Geographic match or remote flexibility</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Match Level Reference</div>
+        <div class="match-ref-grid">
+          <div class="match-ref high"><span class="ref-score">≥ 80</span><span class="ref-lbl">High Match</span><span class="ref-desc">Strong candidate — apply with confidence</span></div>
+          <div class="match-ref medium"><span class="ref-score">50–79</span><span class="ref-lbl">Medium Match</span><span class="ref-desc">Good fit — worth applying with a strong cover letter</span></div>
+          <div class="match-ref low"><span class="ref-score">&lt; 50</span><span class="ref-lbl">Low Match</span><span class="ref-desc">Skill gap exists — consider upskilling first</span></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/analysis.js"></script>
+  <script src="js/results.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
