@@ -1,0 +1,734 @@
+{
+ "skills": {
+  "python": {
+   "category": "language",
+   "aliases": [
+    "python3",
+    "py"
+   ]
+  },
+  "java": {
+   "category": "language",
+   "aliases": []
+  },
+  "javascript": {
+   "category": "language",
+   "aliases": [
+    "js",
+    "ecmascript",
+    "es6"
+   ]
+  },
+  "typescript": {
+   "category": "language",
+   "aliases": [
+    "ts"
+   ]
+  },
+  "go": {
+   "category": "language",
+   "aliases": [
+    "golang"
+   ]
+  },
+  "rust": {
+   "category": "language",
+   "aliases": []
+  },
+  "c++": {
+   "category": "language",
+   "aliases": [
+    "cpp",
+    "c plus plus"
+   ]
+  },
+  "c#": {
+   "category": "language",
+   "aliases": [
+    "csharp",
+    "c sharp"
+   ]
+  },
+  "kotlin": {
+   "category": "language",
+   "aliases": []
+  },
+  "swift": {
+   "category": "language",
+   "aliases": []
+  },
+  "scala": {
+   "category": "language",
+   "aliases": []
+  },
+  "r": {
+   "category": "language",
+   "aliases": [
+    "r language",
+    "rstats"
+   ]
+  },
+  "sql": {
+   "category": "language",
+   "aliases": [
+    "t-sql",
+    "pl/sql"
+   ]
+  },
+  "bash": {
+   "category": "language",
+   "aliases": [
+    "shell scripting",
+    "shell",
+    "zsh"
+   ]
+  },
+  "php": {
+   "category": "language",
+   "aliases": []
+  },
+  "ruby": {
+   "category": "language",
+   "aliases": []
+  },
+  "react": {
+   "category": "frontend",
+   "aliases": [
+    "react.js",
+    "reactjs"
+   ]
+  },
+  "angular": {
+   "category": "frontend",
+   "aliases": [
+    "angularjs",
+    "angular.js"
+   ]
+  },
+  "vue": {
+   "category": "frontend",
+   "aliases": [
+    "vue.js",
+    "vuejs"
+   ]
+  },
+  "next.js": {
+   "category": "frontend",
+   "aliases": [
+    "nextjs",
+    "next js"
+   ]
+  },
+  "html": {
+   "category": "frontend",
+   "aliases": [
+    "html5"
+   ]
+  },
+  "css": {
+   "category": "frontend",
+   "aliases": [
+    "css3",
+    "scss",
+    "sass"
+   ]
+  },
+  "redux": {
+   "category": "frontend",
+   "aliases": []
+  },
+  "webpack": {
+   "category": "frontend",
+   "aliases": [
+    "vite"
+   ]
+  },
+  "accessibility": {
+   "category": "frontend",
+   "aliases": [
+    "wcag",
+    "a11y"
+   ]
+  },
+  "node.js": {
+   "category": "backend",
+   "aliases": [
+    "nodejs",
+    "node"
+   ]
+  },
+  "express": {
+   "category": "backend",
+   "aliases": [
+    "express.js",
+    "expressjs"
+   ]
+  },
+  "django": {
+   "category": "backend",
+   "aliases": []
+  },
+  "flask": {
+   "category": "backend",
+   "aliases": []
+  },
+  "fastapi": {
+   "category": "backend",
+   "aliases": [
+    "fast api"
+   ]
+  },
+  "spring boot": {
+   "category": "backend",
+   "aliases": [
+    "springboot",
+    "spring framework"
+   ]
+  },
+  ".net": {
+   "category": "backend",
+   "aliases": [
+    "dotnet",
+    "asp.net"
+   ]
+  },
+  "rest api": {
+   "category": "backend",
+   "aliases": [
+    "rest",
+    "restful",
+    "rest apis",
+    "restful apis"
+   ]
+  },
+  "graphql": {
+   "category": "backend",
+   "aliases": []
+  },
+  "grpc": {
+   "category": "backend",
+   "aliases": [
+    "protobuf",
+    "protocol buffers"
+   ]
+  },
+  "microservices": {
+   "category": "backend",
+   "aliases": [
+    "microservice",
+    "service-oriented architecture"
+   ]
+  },
+  "postgresql": {
+   "category": "database",
+   "aliases": [
+    "postgres",
+    "psql"
+   ]
+  },
+  "mysql": {
+   "category": "database",
+   "aliases": [
+    "mariadb"
+   ]
+  },
+  "mongodb": {
+   "category": "database",
+   "aliases": [
+    "mongo"
+   ]
+  },
+  "redis": {
+   "category": "database",
+   "aliases": []
+  },
+  "elasticsearch": {
+   "category": "database",
+   "aliases": [
+    "elastic search",
+    "opensearch"
+   ]
+  },
+  "cassandra": {
+   "category": "database",
+   "aliases": []
+  },
+  "dynamodb": {
+   "category": "database",
+   "aliases": [
+    "dynamo db"
+   ]
+  },
+  "snowflake": {
+   "category": "database",
+   "aliases": []
+  },
+  "bigquery": {
+   "category": "database",
+   "aliases": [
+    "big query"
+   ]
+  },
+  "aws": {
+   "category": "cloud",
+   "aliases": [
+    "amazon web services",
+    "ec2",
+    "s3",
+    "lambda"
+   ]
+  },
+  "gcp": {
+   "category": "cloud",
+   "aliases": [
+    "google cloud",
+    "google cloud platform"
+   ]
+  },
+  "azure": {
+   "category": "cloud",
+   "aliases": [
+    "microsoft azure"
+   ]
+  },
+  "docker": {
+   "category": "devops",
+   "aliases": [
+    "containers",
+    "containerization"
+   ]
+  },
+  "kubernetes": {
+   "category": "devops",
+   "aliases": [
+    "k8s",
+    "eks",
+    "gke",
+    "aks"
+   ]
+  },
+  "terraform": {
+   "category": "devops",
+   "aliases": [
+    "infrastructure as code",
+    "iac"
+   ]
+  },
+  "ansible": {
+   "category": "devops",
+   "aliases": []
+  },
+  "helm": {
+   "category": "devops",
+   "aliases": []
+  },
+  "ci/cd": {
+   "category": "devops",
+   "aliases": [
+    "cicd",
+    "continuous integration",
+    "github actions",
+    "gitlab ci",
+    "circleci"
+   ]
+  },
+  "jenkins": {
+   "category": "devops",
+   "aliases": []
+  },
+  "argocd": {
+   "category": "devops",
+   "aliases": [
+    "argo cd"
+   ]
+  },
+  "prometheus": {
+   "category": "devops",
+   "aliases": []
+  },
+  "grafana": {
+   "category": "devops",
+   "aliases": []
+  },
+  "datadog": {
+   "category": "devops",
+   "aliases": []
+  },
+  "linux": {
+   "category": "devops",
+   "aliases": [
+    "unix"
+   ]
+  },
+  "git": {
+   "category": "tooling",
+   "aliases": [
+    "github",
+    "gitlab"
+   ]
+  },
+  "kafka": {
+   "category": "data",
+   "aliases": [
+    "apache kafka"
+   ]
+  },
+  "rabbitmq": {
+   "category": "data",
+   "aliases": [
+    "rabbit mq"
+   ]
+  },
+  "spark": {
+   "category": "data",
+   "aliases": [
+    "pyspark",
+    "apache spark"
+   ]
+  },
+  "hadoop": {
+   "category": "data",
+   "aliases": [
+    "hdfs",
+    "hive"
+   ]
+  },
+  "airflow": {
+   "category": "data",
+   "aliases": [
+    "apache airflow"
+   ]
+  },
+  "dbt": {
+   "category": "data",
+   "aliases": []
+  },
+  "etl": {
+   "category": "data",
+   "aliases": [
+    "elt",
+    "data pipelines",
+    "data pipeline"
+   ]
+  },
+  "pandas": {
+   "category": "ml",
+   "aliases": []
+  },
+  "numpy": {
+   "category": "ml",
+   "aliases": []
+  },
+  "scikit-learn": {
+   "category": "ml",
+   "aliases": [
+    "sklearn",
+    "scikit learn"
+   ]
+  },
+  "pytorch": {
+   "category": "ml",
+   "aliases": [
+    "torch"
+   ]
+  },
+  "tensorflow": {
+   "category": "ml",
+   "aliases": [
+    "tf2",
+    "keras"
+   ]
+  },
+  "xgboost": {
+   "category": "ml",
+   "aliases": [
+    "lightgbm",
+    "gradient boosting"
+   ]
+  },
+  "machine learning": {
+   "category": "ml",
+   "aliases": [
+    "ml"
+   ]
+  },
+  "deep learning": {
+   "category": "ml",
+   "aliases": [
+    "neural networks",
+    "dl"
+   ]
+  },
+  "nlp": {
+   "category": "ml",
+   "aliases": [
+    "natural language processing"
+   ]
+  },
+  "computer vision": {
+   "category": "ml",
+   "aliases": [
+    "image recognition",
+    "object detection"
+   ]
+  },
+  "llm": {
+   "category": "ml",
+   "aliases": [
+    "large language models",
+    "llms",
+    "rag",
+    "retrieval augmented generation"
+   ]
+  },
+  "mlops": {
+   "category": "ml",
+   "aliases": [
+    "mlflow",
+    "kubeflow",
+    "model deployment"
+   ]
+  },
+  "statistics": {
+   "category": "ml",
+   "aliases": [
+    "statistical modeling",
+    "hypothesis testing"
+   ]
+  },
+  "a/b testing": {
+   "category": "ml",
+   "aliases": [
+    "ab testing",
+    "experimentation",
+    "causal inference"
+   ]
+  },
+  "recommender systems": {
+   "category": "ml",
+   "aliases": [
+    "recommendation systems",
+    "recsys"
+   ]
+  },
+  "tableau": {
+   "category": "analytics",
+   "aliases": []
+  },
+  "power bi": {
+   "category": "analytics",
+   "aliases": [
+    "powerbi"
+   ]
+  },
+  "excel": {
+   "category": "analytics",
+   "aliases": [
+    "spreadsheets"
+   ]
+  },
+  "android": {
+   "category": "mobile",
+   "aliases": []
+  },
+  "ios": {
+   "category": "mobile",
+   "aliases": []
+  },
+  "react native": {
+   "category": "mobile",
+   "aliases": []
+  },
+  "flutter": {
+   "category": "mobile",
+   "aliases": [
+    "dart"
+   ]
+  },
+  "selenium": {
+   "category": "qa",
+   "aliases": []
+  },
+  "cypress": {
+   "category": "qa",
+   "aliases": [
+    "playwright"
+   ]
+  },
+  "unit testing": {
+   "category": "qa",
+   "aliases": [
+    "jest",
+    "pytest",
+    "junit",
+    "tdd",
+    "test driven development"
+   ]
+  },
+  "penetration testing": {
+   "category": "security",
+   "aliases": [
+    "pentesting",
+    "pen testing"
+   ]
+  },
+  "siem": {
+   "category": "security",
+   "aliases": [
+    "splunk"
+   ]
+  },
+  "network security": {
+   "category": "security",
+   "aliases": [
+    "firewalls",
+    "ids/ips"
+   ]
+  },
+  "owasp": {
+   "category": "security",
+   "aliases": [
+    "appsec",
+    "application security"
+   ]
+  },
+  "iam": {
+   "category": "security",
+   "aliases": [
+    "identity and access management",
+    "oauth",
+    "sso"
+   ]
+  },
+  "distributed systems": {
+   "category": "backend",
+   "aliases": [
+    "distributed computing"
+   ]
+  },
+  "system design": {
+   "category": "backend",
+   "aliases": [
+    "software architecture"
+   ]
+  },
+  "agile": {
+   "category": "process",
+   "aliases": [
+    "scrum",
+    "kanban"
+   ]
+  }
+ },
+ "related": [
+  [
+   "aws",
+   "gcp",
+   "azure"
+  ],
+  [
+   "postgresql",
+   "mysql"
+  ],
+  [
+   "pytorch",
+   "tensorflow"
+  ],
+  [
+   "react",
+   "vue",
+   "angular"
+  ],
+  [
+   "django",
+   "flask",
+   "fastapi"
+  ],
+  [
+   "kafka",
+   "rabbitmq"
+  ],
+  [
+   "jenkins",
+   "ci/cd",
+   "argocd"
+  ],
+  [
+   "prometheus",
+   "grafana",
+   "datadog"
+  ],
+  [
+   "java",
+   "kotlin",
+   "scala"
+  ],
+  [
+   "javascript",
+   "typescript"
+  ],
+  [
+   "tableau",
+   "power bi"
+  ],
+  [
+   "selenium",
+   "cypress"
+  ],
+  [
+   "snowflake",
+   "bigquery"
+  ],
+  [
+   "spark",
+   "hadoop"
+  ],
+  [
+   "mongodb",
+   "dynamodb",
+   "cassandra"
+  ],
+  [
+   "docker",
+   "kubernetes"
+  ],
+  [
+   "android",
+   "kotlin"
+  ],
+  [
+   "ios",
+   "swift"
+  ],
+  [
+   "react native",
+   "flutter"
+  ],
+  [
+   "machine learning",
+   "deep learning"
+  ]
+ ],
+ "ambiguous": [
+  "r",
+  "go",
+  "py",
+  "ts",
+  "js",
+  "ml",
+  "dl",
+  "rest",
+  "node",
+  "shell",
+  "spring",
+  "excel",
+  "swift",
+  "rust",
+  "express",
+  "helm",
+  "spark",
+  "iac",
+  "sso",
+  "ios"
+ ]
+}
