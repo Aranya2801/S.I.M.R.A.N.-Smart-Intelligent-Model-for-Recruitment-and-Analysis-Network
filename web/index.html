@@ -33,7 +33,7 @@
       </div>
       <div>
         <span class="logo-name">S.I.M.R.A.N.</span>
-        <span class="logo-ver">v2.0</span>
+        <span class="logo-ver">v3.0</span>
       </div>
     </div>
 
@@ -61,7 +61,7 @@
         <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
         GitHub
       </a>
-      <div class="ai-badge">Powered by Claude AI</div>
+      <div class="ai-badge" id="engineBadge">Engine: local model v3</div>
     </div>
   </aside>
 
@@ -73,10 +73,10 @@
       <div class="page-header">
         <div>
           <h1 class="page-title">Dashboard</h1>
-          <p class="page-sub">Your AI-powered career command center</p>
+          <p class="page-sub">Your job-matching runs, all stored locally</p>
         </div>
         <div class="header-actions">
-          <span class="status-pill online">● System Online</span>
+          
           <button class="btn btn-primary" onclick="navTo('analyze')">+ New Analysis</button>
         </div>
       </div>
@@ -196,7 +196,7 @@ Include:
 
         <!-- Resume Tips -->
         <div class="tips-grid">
-          <div class="tip-card">💡 Include all skills explicitly — don't assume AI knows your stack</div>
+          <div class="tip-card">💡 Mention skills inside your experience bullets, not only in the skills list — the model checks for evidence</div>
           <div class="tip-card">📍 Mention your location and remote preferences for better location scoring</div>
           <div class="tip-card">🗓 Include dates so experience years can be calculated accurately</div>
           <div class="tip-card">🏆 Add certifications and notable projects to boost your profile</div>
@@ -240,42 +240,26 @@ Include:
               <div class="opt-hint">Jobs below this score will be excluded from results</div>
             </div>
             <div class="option-group">
-              <label class="opt-label">Scoring Weights</label>
-              <div class="weights-grid">
-                <div class="weight-item">
-                  <span class="weight-lbl">Skills Match</span>
-                  <div class="weight-bar"><div class="weight-fill" style="width:40%"></div></div>
-                  <span class="weight-pct">40%</span>
-                </div>
-                <div class="weight-item">
-                  <span class="weight-lbl">Experience</span>
-                  <div class="weight-bar"><div class="weight-fill" style="width:30%;background:#f5c842"></div></div>
-                  <span class="weight-pct">30%</span>
-                </div>
-                <div class="weight-item">
-                  <span class="weight-lbl">Role Relevance</span>
-                  <div class="weight-bar"><div class="weight-fill" style="width:20%;background:#00aaff"></div></div>
-                  <span class="weight-pct">20%</span>
-                </div>
-                <div class="weight-item">
-                  <span class="weight-lbl">Location</span>
-                  <div class="weight-bar"><div class="weight-fill" style="width:10%;background:#ff6b6b"></div></div>
-                  <span class="weight-pct">10%</span>
-                </div>
-              </div>
+              <label class="opt-label">What the model weighs <span class="opt-hint-inline">(learned, see docs/REPORT.md)</span></label>
+              <div class="weights-grid" id="learnedWeights"></div>
             </div>
             <div class="option-group">
               <label class="opt-label">Preferences</label>
               <div class="toggle-list">
                 <label class="toggle-item">
-                  <input type="checkbox" id="prefRemote" checked>
+                  <input type="checkbox" id="prefBlind" checked>
+                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                  Blind screening (hide name, contact, affiliations)
+                </label>
+                <label class="toggle-item">
+                  <input type="checkbox" id="prefRemote">
                   <span class="toggle-track"><span class="toggle-thumb"></span></span>
                   Boost remote-friendly jobs
                 </label>
                 <label class="toggle-item">
                   <input type="checkbox" id="prefSalary" checked>
                   <span class="toggle-track"><span class="toggle-thumb"></span></span>
-                  Estimate missing salaries
+                  Estimate missing salaries (Claude mode only)
                 </label>
                 <label class="toggle-item">
                   <input type="checkbox" id="prefStrict">
@@ -285,7 +269,7 @@ Include:
               </div>
             </div>
             <div class="option-group">
-              <label class="opt-label">Output Language</label>
+              <label class="opt-label">Output Language <span class="opt-hint-inline">(Claude mode only)</span></label>
               <select class="sel" id="outputLang">
                 <option value="English">English</option>
                 <option value="Spanish">Spanish</option>
@@ -414,26 +398,40 @@ Include:
         </div>
       </div>
       <div class="card" style="margin-bottom:20px">
+        <div class="card-label">Matching Engine</div>
+        <div class="engine-opts">
+          <label class="engine-opt">
+            <input type="radio" name="engine" value="local">
+            <div><b>Local model (v3)</b><span>Feature-based ranker trained on SIMRAN-Synth. Runs in this page, works offline, nothing is sent anywhere. Every score is explainable.</span></div>
+          </label>
+          <label class="engine-opt">
+            <input type="radio" name="engine" value="claude">
+            <div><b>Claude API</b><span>The original v2 approach: the LLM reads everything and returns scores. Needs your own Anthropic API key. Not covered by the benchmark.</span></div>
+          </label>
+        </div>
+        <div id="claudeFields" class="claude-fields hidden">
+          <label class="opt-label">Anthropic API key</label>
+          <input type="password" id="apiKey" class="inp" placeholder="sk-ant-..." autocomplete="off">
+          <label class="opt-label" style="margin-top:10px">Model</label>
+          <input type="text" id="modelName" class="inp" placeholder="claude-sonnet-5-5">
+          <div class="opt-hint">The key is saved in this browser's localStorage only. Don't use this mode on a shared computer.</div>
+        </div>
+        <div class="btn-row" style="margin-top:14px"><button class="btn btn-primary" id="saveSettingsBtn">Save</button></div>
+      </div>
+      <div class="card" style="margin-bottom:20px">
         <div class="card-label">About S.I.M.R.A.N.</div>
         <div class="about-grid">
-          <div class="about-item"><span class="about-key">Version</span><span class="about-val">2.0.0</span></div>
-          <div class="about-item"><span class="about-key">AI Model</span><span class="about-val">Claude Sonnet 4</span></div>
+          <div class="about-item"><span class="about-key">Version</span><span class="about-val">3.0.0</span></div>
+          <div class="about-item"><span class="about-key">Default engine</span><span class="about-val">Local learned ranker (logistic regression, 10 features)</span></div>
           <div class="about-item"><span class="about-key">Author</span><span class="about-val">Aranya2801</span></div>
           <div class="about-item"><span class="about-key">License</span><span class="about-val">MIT</span></div>
           <div class="about-item"><span class="about-key">GitHub</span><span class="about-val"><a href="https://github.com/Aranya2801/S.I.M.R.A.N.-Smart-Intelligent-Model-for-Recruitment-and-Analysis-Network" target="_blank" style="color:var(--accent)">View Repository</a></span></div>
         </div>
       </div>
       <div class="card" style="margin-bottom:20px">
-        <div class="card-label">Scoring Weights Reference</div>
-        <div class="scoring-table">
-          <div class="scoring-row header">
-            <span>Factor</span><span>Weight</span><span>Description</span>
-          </div>
-          <div class="scoring-row"><span>Skills Match</span><span class="badge-accent">40%</span><span>Overlap between your skills and job requirements</span></div>
-          <div class="scoring-row"><span>Experience</span><span class="badge-gold">30%</span><span>Years of experience vs job requirement</span></div>
-          <div class="scoring-row"><span>Role Relevance</span><span class="badge-blue">20%</span><span>How closely your roles match the job domain</span></div>
-          <div class="scoring-row"><span>Location</span><span class="badge-red">10%</span><span>Geographic match or remote flexibility</span></div>
-        </div>
+        <div class="card-label">Learned Feature Weights</div>
+        <div class="opt-hint" style="margin-bottom:10px">Standardised logistic-regression coefficients of the shipped model. Positive pushes a score up, negative pulls it down. These replace the hand-picked 40/30/20/10 split from v2.</div>
+        <div class="weights-grid" id="learnedWeightsSettings"></div>
       </div>
       <div class="card">
         <div class="card-label">Match Level Reference</div>
@@ -447,6 +445,8 @@ Include:
 
   </main>
 
+  <script src="js/model-data.js"></script>
+  <script src="js/engine.js"></script>
   <script src="js/data.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/analysis.js"></script>

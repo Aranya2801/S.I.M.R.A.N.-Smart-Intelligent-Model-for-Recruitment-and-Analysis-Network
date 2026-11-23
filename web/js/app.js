@@ -1,7 +1,5 @@
-/* ============================================
-   S.I.M.R.A.N. v2.0 — app.js
-   Main initializer and event bindings
-============================================ */
+/* S.I.M.R.A.N. — app.js
+   startup + event bindings */
 
 'use strict';
 
@@ -28,9 +26,31 @@ document.addEventListener('DOMContentLoaded', () => {
   // Start on home page
   navTo('home');
 
-  // Inject toast keyframe if not present
   injectToastStyle();
+  initSettings();
+  renderLearnedWeights('learnedWeights');
+  renderLearnedWeights('learnedWeightsSettings');
 });
+
+// bars for the shipped model's coefficients (Options step + Settings page)
+const FEATURE_LABELS = {
+  req_cov: 'Required skills covered', pref_cov: 'Nice-to-haves covered', req_evid: 'Skills backed by work',
+  exp_short: 'Experience shortfall', exp_over: 'Overqualified', sen_under: 'Role above current level',
+  sen_over: 'Role below current level', title_sim: 'Similar past titles', domain_sim: 'Domain fit', loc_ok: 'Location fit',
+};
+function renderLearnedWeights(id) {
+  const el = document.getElementById(id);
+  if (!el || typeof SIMRAN_DATA === 'undefined') return;
+  const m = SIMRAN_DATA.model;
+  const rows = m.features.map((f, i) => [f, m.coef[i]]).sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]));
+  const max = Math.max(...rows.map(r => Math.abs(r[1])));
+  el.innerHTML = rows.map(([f, w]) => `
+    <div class="weight-item">
+      <span class="weight-lbl wide">${FEATURE_LABELS[f] || f}</span>
+      <div class="weight-bar"><div class="weight-fill ${w < 0 ? 'neg' : ''}" style="width:${(100 * Math.abs(w) / max).toFixed(0)}%"></div></div>
+      <span class="weight-pct">${w > 0 ? '+' : ''}${w.toFixed(2)}</span>
+    </div>`).join('');
+}
 
 // ─── EVENT BINDINGS ──────────────────────────────────────────────
 function bindEvents() {
