@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Senior Full Stack Engineer",
+    "company": "Stripe",
+    "location": "San Francisco, CA",
+    "description": "We are looking for a Senior Full Stack Engineer to join our Payments Infrastructure team.\n\nRequirements:\n- 5+ years of software engineering experience\n- Strong proficiency in Python and React/TypeScript\n- Experience with PostgreSQL, Redis, and distributed systems\n- AWS infrastructure (EC2, Lambda, RDS, S3)\n- Microservices architecture and Kubernetes\n- REST API design and GraphQL\n\nNice to have:\n- Experience with high-throughput payment systems\n- Knowledge of PCI-DSS compliance\n- Terraform for infrastructure as code\n\nWe build the financial infrastructure that powers the internet. Remote OK.",
+    "salary": "$160,000 – $210,000"
+  },
+  {
+    "title": "Backend Engineer",
+    "company": "Airbnb",
+    "location": "San Francisco, CA",
+    "description": "Join Airbnb's Core Booking team to build systems that handle millions of reservations globally.\n\nRequirements:\n- 3–6 years of backend engineering experience\n- Proficiency in Python or Java (we use both)\n- Strong REST API design skills\n- Experience with microservices and event-driven architecture\n- Kubernetes, Docker, AWS\n- SQL and NoSQL databases\n\nNice to have:\n- Experience with distributed systems at scale\n- Kafka or RabbitMQ messaging\n- gRPC or GraphQL",
+    "salary": "$140,000 – $185,000"
+  },
+  {
+    "title": "Frontend Engineer",
+    "company": "Figma",
+    "location": "Remote (US)",
+    "description": "Figma is looking for a Frontend Engineer to work on our design editor and collaboration tools.\n\nRequirements:\n- 3+ years of frontend engineering experience\n- Deep React and TypeScript expertise\n- Performance optimization (profiling, rendering, bundle size)\n- Strong CSS and browser APIs knowledge\n\nNice to have:\n- WebGL, Canvas, or SVG rendering\n- Experience with collaborative/real-time applications (WebSockets, CRDTs)\n- Accessibility (WCAG 2.1 AA)\n- Design systems experience",
+    "salary": "$130,000 – $170,000"
+  },
+  {
+    "title": "Data Scientist",
+    "company": "Meta",
+    "location": "Menlo Park, CA",
+    "description": "Meta is hiring a Data Scientist for the Ads Ranking team.\n\nRequirements:\n- Advanced degree (MS or PhD) in Statistics, CS, or related field\n- Expertise in Python (pandas, scikit-learn, PyTorch or TensorFlow)\n- Large-scale data processing (Spark, Hive, Presto)\n- Causal inference and experimentation (A/B testing, uplift modeling)\n- SQL proficiency\n\nNice to have:\n- NLP or computer vision experience\n- Experience with recommendation systems or ads ranking\n- Publications in ML/AI conferences",
+    "salary": "$165,000 – $230,000"
+  },
+  {
+    "title": "DevOps / Platform Engineer",
+    "company": "Dropbox",
+    "location": "San Francisco, CA",
+    "description": "Dropbox Platform team is growing! We need a DevOps engineer to build our internal developer platform.\n\nRequirements:\n- 3+ years DevOps or SRE experience\n- Kubernetes (CKA certification preferred), Docker, Helm\n- AWS or GCP — deep infrastructure knowledge\n- Terraform and infrastructure as code\n- CI/CD pipeline design (GitHub Actions, ArgoCD, Jenkins)\n- Python or Go scripting\n\nNice to have:\n- Prometheus, Grafana, Datadog monitoring\n- Service mesh (Istio)\n- Security hardening and compliance",
+    "salary": "$130,000 – $165,000"
+  },
+  {
+    "title": "Full Stack Engineer",
+    "company": "Notion",
+    "location": "Remote",
+    "description": "Notion is hiring a Full Stack Engineer to work on our core editor and database product.\n\nRequirements:\n- 3+ years full-stack experience\n- React, TypeScript, Node.js\n- PostgreSQL and Redis\n- REST APIs and good API design sense\n- Collaborative, async-first work style\n\nNice to have:\n- Experience with rich text editors (ProseMirror, Slate.js)\n- Real-time collaboration features\n- Performance optimization for large data sets",
+    "salary": "$145,000 – $175,000"
+  },
+  {
+    "title": "Software Engineer, Infrastructure",
+    "company": "OpenAI",
+    "location": "San Francisco, CA",
+    "description": "OpenAI is looking for an Infrastructure Engineer to scale our training and inference systems.\n\nRequirements:\n- 4+ years of software engineering experience\n- Strong Python and Bash scripting\n- Kubernetes, Docker at scale\n- AWS or Azure infrastructure\n- Distributed systems fundamentals\n\nNice to have:\n- GPU cluster management\n- ML training pipeline experience\n- gRPC, Protobuf",
+    "salary": "$180,000 – $250,000"
+  }
+]

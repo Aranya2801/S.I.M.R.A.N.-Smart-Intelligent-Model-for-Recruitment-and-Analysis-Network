@@ -1,0 +1,40 @@
+John Smith — Software Engineer | 4 Years Experience
+Location: San Francisco, CA (Open to Remote)
+Email: john.smith@email.com | GitHub: github.com/johnsmith
+
+SKILLS
+Languages: Python, JavaScript, TypeScript, SQL, Java (basic), Bash
+Frameworks: React, Node.js, FastAPI, Django, Express, Next.js
+Databases: PostgreSQL, MongoDB, Redis, Elasticsearch
+Cloud & DevOps: AWS (EC2, S3, Lambda, RDS), Docker, Kubernetes, Terraform, GitHub Actions
+Tools: Git, Jira, Figma, Postman, Datadog, PagerDuty
+
+PROFESSIONAL EXPERIENCE
+
+Software Engineer II — TechCorp Inc. (Jan 2022 – Present)
+San Francisco, CA
+- Architected and maintained RESTful APIs with Python/FastAPI serving 2M+ requests/day
+- Built React dashboards used by 500+ internal stakeholders for analytics and reporting
+- Reduced PostgreSQL query latency by 40% via indexing, query optimization, and connection pooling
+- Led migration of 3 monolithic services to Kubernetes-based microservices on AWS
+- Mentored 2 junior engineers; led weekly code review sessions
+- Integrated Elasticsearch for full-text search across product catalog (8M+ records)
+
+Junior Software Developer — StartupXYZ (Jun 2020 – Dec 2021)
+Remote
+- Developed responsive web UIs with React and TypeScript for B2C SaaS product
+- Integrated Stripe Billing, Twilio SMS, and SendGrid Email APIs
+- Wrote 85% test coverage using Jest and Pytest
+- Maintained CI/CD pipelines with GitHub Actions deploying to AWS ECS
+
+EDUCATION
+B.S. Computer Science — UC Berkeley (2020) | GPA: 3.72 | Dean's List
+
+PROJECTS
+- simran-cli: Open-source API testing CLI in Python (700+ GitHub stars, 1,400+ npm downloads/week)
+- CodeCollab: Real-time collaborative code editor (WebSockets + React + Node.js, 2,000+ users)
+- Portfolio: johnsmith.dev — built with Next.js and deployed on Vercel
+
+CERTIFICATIONS
+- AWS Certified Developer – Associate (2023)
+- Google Cloud Associate Cloud Engineer (2022)
